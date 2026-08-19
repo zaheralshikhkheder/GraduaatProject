@@ -42,28 +42,29 @@ project, niet je stage.
 
 ### 1. Haal de sjablonen binnen
 
-De sjablonen staan in de Forgejo van de opleiding. Je begeleider bezorgt je de
-juiste kloonlink en je toegang.
+De sjablonen staan in de Forgejo van de opleiding, op
+<https://les.lucvervoort.org>. Lezen kan zonder account; om te kunnen pushen
+krijg je een aanmelding van je begeleider.
+
+**De eenvoudigste weg is de knop "Use this template"** bovenaan de
+sjabloonrepository. Je krijgt dan meteen je eigen repository, met een schone
+historiek — zonder de wijzigingen aan het sjabloon zelf, die voor jouw werk
+niets betekenen. Daarna:
 
 ```console
-$ git clone <kloonlink-van-het-sjabloon> mijn-graduaatsproject
+$ git clone <link-naar-jouw-eigen-repository> mijn-graduaatsproject
 $ cd mijn-graduaatsproject
 ```
 
-**Maak er daarna je eigen repository van.** Je wil de wijzigingshistoriek van
-het sjabloon niet meeslepen in je eigen werk:
+Lukt die knop niet, dan werkt de omweg ook:
 
 ```console
+$ git clone https://les.lucvervoort.org/graduaatsproject/latex-sjabloon mijn-graduaatsproject
+$ cd mijn-graduaatsproject
 $ rm -rf .git
 $ git init
 $ git add .
 $ git commit -m "Startpunt: sjablonen graduaatsproject"
-```
-
-Maak vervolgens een eigen repository aan (in de Forgejo van de opleiding of
-elders) en koppel ze:
-
-```console
 $ git remote add origin <link-naar-jouw-eigen-repository>
 $ git push -u origin main
 ```
@@ -106,12 +107,24 @@ Op macOS, Linux of in Git Bash:
 $ ./make_report.sh
 ```
 
-Voor het voorstel en de poster gebruik je `make_voorstel` en `make_poster`.
-De PDF's komen in `output/`.
+Alle scripts op een rij — elk bestaat in een `.bat`-versie (Windows) en een
+`.sh`-versie (macOS, Linux, Git Bash):
+
+| Script | Wat het doet |
+|---|---|
+| `make_report` | bouwt `output/rapport.pdf` |
+| `make_voorstel` | bouwt `output/voorstel.pdf` |
+| `make_poster` | bouwt `output/poster.pdf` |
+| `check` | **kijkt je documenten na voor je ze indient** |
+| `make_overleaf` | maakt `output/overleaf.zip` om in Overleaf verder te werken |
 
 De eerste keer duurt dit een paar minuten: er wordt een containerimage gebouwd
 met alle LaTeX-pakketten en de lettertypes van de huisstijl. Daarna gaat het
 snel.
+
+Zodra je `\bestandsnaam` in `projectgegevens.tex` ingevuld hebt, krijgen je
+PDF's er een kopie bij met je naam erin — `Janssens-Sara-rapport.pdf` — zodat je
+inzending herkenbaar is. Dat is het bestand dat je indient.
 
 ### 4. Schrijf
 
@@ -128,17 +141,102 @@ De opbouw ligt vast in het sjabloon:
 2. **Summary in het Engels** (dezelfde tekst, bladzijde 2) — verplicht
 3. **Inleiding** — context, probleem, doelstelling en **afbakening**
 4. **Technologie en verantwoording** — welke alternatieven, en waarom deze keuze
-5. **Analyse en ontwerp** — vereisten, architectuur, ontwerpkeuzes
+5. **Analyse en ontwerp** — vereisten, architectuur, privacy en veiligheid,
+   ontwerpkeuzes
 6. **Realisatie** — wat je gebouwd hebt, met codefragmenten
 7. **Resultaat en validatie** — werkt het, en hoe weet je dat
 8. **Conclusie en reflectie** — wat je geleerd hebt, wat je anders zou doen
-9. **Bijlagen** — je projectvoorstel, je repository-link, je verantwoording van
-   het gebruik van AI
+9. **Bijlagen** — je projectvoorstel, je repository-link, en je **verantwoording
+   van het gebruik van AI**
 10. **Bronnenlijst**
 
 Je projectvoorstel wordt automatisch als bijlage in je rapport opgenomen: het
 staat in `voorstel/voorstel-inhoud.tex` en wordt van daaruit ingevoegd. Je hoeft
 dus niets te kopiëren.
+
+### 5. Kijk je werk na voor je indient
+
+```console
+> check.bat          (Windows)
+$ ./check.sh         (macOS, Linux, Git Bash)
+```
+
+Dat script beoordeelt je inhoud niet — het zoekt naar de dingen die elk jaar
+opnieuw vergeten worden: gegevens die nog op de standaardwaarde staan,
+sjabloontekst die blijven staan is, een ontbrekende Engelse samenvatting, een
+niet-ingevulde AI-verantwoording, een wachtwoord dat per ongeluk in je tekst
+staat, en een rapport dat veel te lang of te kort is.
+
+Draai het minstens één keer een week vóór de deadline, niet de avond ervoor.
+
+## Wat er nog in deze repository staat
+
+| Bestand | Waarvoor |
+|---|---|
+| [`RUBRIC.md`](./RUBRIC.md) | **Waarop je beoordeeld wordt**, met de gewichten en de vragen die de jury echt stelt. Lees dit in week 1. |
+| [`WERKLOG.md`](./WERKLOG.md) | Je weeklog. Kost een halve minuut per week en is later de grondstof van je rapport. |
+| [`voorbeelden/`](./voorbeelden/) | Werk van vorige jaren, met commentaar erbij. |
+| [`.devcontainer/`](./.devcontainer/) | Opent deze map in VS Code met LaTeX al klaar (zie hieronder). |
+
+## Geen literatuurstudie, wél bronvermelding
+
+Je hoeft **geen literatuurstudie** te schrijven en geen overzicht van de stand
+van zaken in het vakgebied. Je hoeft ook geen wetenschappelijke bronnen te
+verzamelen om je lijst te vullen.
+
+Wat wél moet: **vermeld de bronnen die je echt gebruikt hebt.** Voor een project
+zijn dat meestal officiële documentatie, handleidingen, blogberichten van de
+makers van een tool, normen, of een boek. Verwijs ernaar op de plaats waar je je
+erop baseert, met `\autocite{sleutel}`, en zet de gegevens in
+`gradproject/bronnen.bib`. Bij een webbron hoort altijd de datum waarop je ze
+geraadpleegd hebt: documentatie verandert.
+
+Een gesprek met een AI-hulpmiddel is **geen bron** — niemand kan het nagaan.
+Dat hoort in de bijlage hieronder.
+
+## AI: gebruik ze, en zeg wat je gedaan hebt
+
+De opleiding verwacht dat je AI doelgericht inzet om iets nieuws te maken. Het
+is dus een competentie die je toont, geen bekentenis die je aflegt. Daarom is de
+bijlage **Verantwoording van het gebruik van AI**
+([`gradproject/ai-verantwoording.tex`](./gradproject/ai-verantwoording.tex))
+verplicht — ook als je geen AI gebruikt hebt; dan schrijf je dat in één zin.
+
+Je vult er een tabel in: waarvoor je AI gebruikt hebt, met welk hulpmiddel, en
+**wat je zelf gecontroleerd, aangepast of verworpen hebt**. Die laatste kolom is
+de belangrijkste.
+
+Twee regels die daarbij gelden:
+
+- **Code die je niet kan uitleggen, hoort niet in je oplevering.** Je bent
+  verantwoordelijk voor alles wat in je repository staat, ook voor wat een
+  hulpmiddel geschreven heeft. Reken erop dat de jury doorvraagt.
+- **De analyse, de keuzes en de afbakening zijn van jou.** AI mag je helpen
+  formuleren; ze mag niet in jouw plaats denken.
+
+## Privacy en regelgeving
+
+Deontologisch werken met oog voor veiligheid en privacy is een leerresultaat van
+dit opleidingsonderdeel. Waar het speelt, hoort het dus in je rapport — in de
+sectie *Privacy, veiligheid en regelgeving* van je ontwerphoofdstuk:
+
+- **Verwerkt je toepassing persoonsgegevens?** Namen, e-mailadressen,
+  klantnummers, foto's, locaties, logbestanden met IP-adressen: dan geldt de
+  **AVG** (in het Engels de GDPR). Beschrijf welke gegevens je verwerkt, waarom
+  je die nodig hebt, hoe lang ze bewaard blijven en wie erbij kan. Ontwikkel bij
+  voorkeur met verzonnen of geanonimiseerde testgegevens, niet met echte.
+- **Zit er AI in wat je bouwt?** Dan speelt de Europese **AI Act**
+  (verordening 2024/1689), waarvan de verplichtingen sinds augustus 2026
+  grotendeels van toepassing zijn. Ga na in welke risicocategorie je toepassing
+  valt en welke transparantieplichten gelden — een gebruiker moet bijvoorbeeld
+  weten dat hij met een AI-systeem praat of dat inhoud gegenereerd is. Gebruik
+  je AI enkel als hulpmiddel bij het programmeren, dan valt je project daar
+  meestal niet onder; schrijf dat dan gewoon zo op.
+- **Geheimen en gegevens van het bedrijf.** Wachtwoorden, sleutels en
+  verbindingsgegevens horen niet in je repository en niet in je
+  schermafbeeldingen. Broncode of klantgegevens in een publiek AI-hulpmiddel
+  plakken is een doorgifte aan een derde partij: vraag je mentor wat bij jouw
+  bedrijf mag, en noteer het antwoord.
 
 ## Schrijven in het Engels
 
@@ -173,9 +271,28 @@ bestanden te kopiëren naar `C:\Windows\Fonts` (Windows), `~/Library/Fonts`
 
 **Visual Studio Code** met de extensie *LaTeX Workshop* is de eenvoudigste weg,
 zeker omdat je die editor waarschijnlijk al gebruikt. De instellingen staan al
-klaar in [`.vscode/settings.json`](./.vscode/settings.json). Je hebt dan wel een
-lokale LaTeX-installatie nodig ([MiKTeX](https://miktex.org/download) of TeX
-Live); wie dat wil vermijden, compileert gewoon met de `make_`-scripts.
+klaar in [`.vscode/settings.json`](./.vscode/settings.json).
+
+Wil je geen LaTeX installeren, installeer dan de extensie **Dev Containers** en
+kies *Reopen in Container*. VS Code bouwt dan dezelfde omgeving als de
+`make_`-scripts, met LaTeX Workshop en een Nederlandse spellingcontrole er al
+in. Zie [`.devcontainer/`](./.devcontainer/). Wie liever zelf installeert,
+gebruikt [MiKTeX](https://miktex.org/download) of TeX Live.
+
+### Geen Docker op je stagelaptop?
+
+Dat komt vaker voor dan je denkt: bedrijfslaptops liggen soms vast. Werk dan in
+**Overleaf**:
+
+1. Draai `make_overleaf.bat` of `./make_overleaf.sh` op een machine waar het wél
+   kan — of maak zelf een zip van deze map, zonder `.git` en `output`.
+2. In Overleaf: *New Project > Upload Project*.
+3. Zet *Menu > Compiler* op **XeLaTeX** (niet pdfLaTeX).
+4. Kies bij *Menu > Main document* welk document je bouwt:
+   `gradproject/rapport.tex`, `voorstel/voorstel.tex` of `poster/poster.tex`.
+
+Overleaf ondersteunt `minted` voor je codefragmenten. Vergeet niet je werk
+regelmatig terug in je eigen git-repository te zetten: je historiek telt mee.
 
 **TeXstudio** kan ook. Kies dan bij Options > Configure TeXstudio:
 

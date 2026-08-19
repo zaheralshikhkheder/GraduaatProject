@@ -27,6 +27,7 @@
 \RequirePackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
 \RequirePackage{wrapfig} % Allows wrapping text around tables and figures
 \RequirePackage[export]{adjustbox}
+\RequirePackage{qrcode} % QR-code naar de repository van de student
 
 %%============================================================================
 %% Process options
@@ -465,8 +466,16 @@
 
   \if\@projectrepo\@empty\else
     \medskip
-    \normalfont\noindent\if@english Source code: \else Broncode: \fi
-    \url{\@projectrepo}
+    \normalfont\noindent
+    %% De QR-code naast de link: een bezoeker op een infodag scant liever dan
+    %% dat hij een lange URL overtypt.
+    \begin{minipage}[c]{0.12\linewidth}
+      \qrcode[height=0.9\linewidth]{\@projectrepo}
+    \end{minipage}%
+    \begin{minipage}[c]{0.86\linewidth}
+      \if@english Source code: \else Broncode: \fi
+      \url{\@projectrepo}
+    \end{minipage}
   \fi
   \endlist
 

@@ -50,6 +50,12 @@ jobs:
       - name: Poster bouwen
         run: PROJECT_ROOT="$PWD" sh docker/render.sh poster
 
+      - name: Nazicht voor het indienen
+        # Blokkeert de build niet: zolang je bezig bent, mogen er nog dingen
+        # openstaan. Lees de uitvoer wel na naarmate de deadline nadert.
+        continue-on-error: true
+        run: PROJECT_ROOT="$PWD" sh docker/check.sh
+
       - name: PDF's bewaren
         uses: actions/upload-artifact@v3
         with:

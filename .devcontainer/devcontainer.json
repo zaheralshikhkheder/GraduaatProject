@@ -1,0 +1,27 @@
+{
+  // Open deze map in Visual Studio Code en kies "Reopen in Container".
+  // Je krijgt dan dezelfde LaTeX-omgeving als de make_-scripts gebruiken,
+  // zonder dat je zelf MiKTeX of TeX Live moet installeren.
+  //
+  // Vereist Docker en de extensie "Dev Containers" in VS Code.
+  "name": "Graduaatsproject LaTeX",
+  "build": {
+    "dockerfile": "../docker/Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/project",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-dutch"
+      ],
+      "settings": {
+        "latex-workshop.latex.outDir": "%DIR%/../output",
+        "latex-workshop.latex.recipe.default": "latexmk 🔃",
+        "cSpell.language": "en,nl"
+      }
+    }
+  }
+}
