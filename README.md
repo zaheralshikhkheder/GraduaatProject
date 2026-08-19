@@ -173,7 +173,7 @@ Draai het minstens één keer een week vóór de deadline, niet de avond ervoor.
 
 | Bestand | Waarvoor |
 |---|---|
-| [`RUBRIC.md`](./RUBRIC.md) | **Waarop je beoordeeld wordt**, met de gewichten en de vragen die de jury echt stelt. Lees dit in week 1. |
+| [`RUBRIC.md`](./RUBRIC.md) | **Waarop je beoordeeld wordt.** Kort samengevat: 60 % bepaalt de lesgever — mee op grond van hoe je gewerkt hebt — en 40 % de jury op je verdediging. **Het proces telt dus voor meer dan de helft mee.** Lees dit in week 1, niet in week 13. |
 | [`WERKLOG.md`](./WERKLOG.md) | Je weeklog. Kost een halve minuut per week en is later de grondstof van je rapport. |
 | [`voorbeelden/`](./voorbeelden/) | Werk van vorige jaren, met commentaar erbij. |
 | [`.devcontainer/`](./.devcontainer/) | Opent deze map in VS Code met LaTeX al klaar (zie hieronder). |

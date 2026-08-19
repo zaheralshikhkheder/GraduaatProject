@@ -1,12 +1,46 @@
 # Waarop je beoordeeld wordt
 
-> **Status**: dit is de rubric zoals ze in juni 2026 gebruikt werd. De criteria
-> en de gewichten voor 2026-2027 worden vóór de kick-off bevestigd door de
-> lesgever van het opleidingsonderdeel. Ga uit van deze verdeling zolang er niets
-> anders gecommuniceerd is.
-
 Je leest dit best in week 1, niet in week 13. Wie weet waarop hij beoordeeld
 wordt, kan zich in de juiste richting inspannen.
+
+## Twee delen: 60 % lesgever, 40 % jury
+
+Je eindscore bestaat uit twee stukken, en dit is het belangrijkste dat je over
+de beoordeling moet weten:
+
+| Deel | Weegt | Wie bepaalt het | Waarop het steunt |
+|---|---|---|---|
+| **Lesgever** | **60 %** | de lesgever van het opleidingsonderdeel | hoe je gewerkt hebt: stiptheid, continu werken — zichtbaar in de opvolgingstool en in je git-historiek — en de kwaliteit van je **voorstel, rapport en poster** |
+| **Jury** | **40 %** | de jury samen, op de dag van je verdediging | de rubric hieronder |
+
+**Het proces telt dus voor meer dan de helft mee.** Niet alleen wat je op het
+einde inlevert, maar hoe je ernaartoe gewerkt hebt: op tijd indienen, je werklog
+bijhouden, regelmatig committen in plaats van alles in de laatste week, en
+reageren wanneer er iets van je gevraagd wordt.
+
+Dat is geen formaliteit en geen strafsysteem. Het is precies wat een werkgever
+van je verwacht, en het is het deel van je score waar je zelf het meeste vat op
+hebt — elke week opnieuw, zonder dat je iets extra hoeft te presteren.
+
+Praktisch betekent dat:
+
+- **spreid je werk.** Tien dagen gespreid over het semester zien er in je
+  git-historiek heel anders uit dan tien dagen in de laatste twee weken;
+- **bevestig elke week je werklog**, ook een week waarin je niets aan je project
+  gedaan hebt. Een lege bevestigde week is prima; een niet-ingevulde week is een
+  gat;
+- **commit met verstand**: kleine, begrijpelijke commits met een zinnige
+  boodschap. Je historiek is mee je bewijsmateriaal;
+- **laat het weten als iets vastloopt.** Proactief melden telt in je voordeel,
+  stil vallen niet.
+
+## De rubric van de jury (40 %)
+
+> **Status**: dit zijn de criteria zoals ze in juni 2026 gebruikt werden,
+> bevestigd voor 2026-2027. De onderlinge verdeling binnen het lesgeverdeel
+> wordt vóór de kick-off meegedeeld.
+
+De percentages hieronder zijn de verdeling **binnen** dat jurydeel van 40 %.
 
 ## De vier criteria
 
@@ -19,12 +53,14 @@ wordt, kan zich in de juiste richting inspannen.
 
 Elk criterium wordt gescoord op vier niveaus (0 onvoldoende, 1 basis, 2 goed,
 3 sterk), in stappen van een half punt. Elk jurylid vult zijn eigen kolom in;
-per criterium is er een opmerkingenveld. De gewogen score wordt omgerekend naar
-een cijfer op 20; je bent geslaagd vanaf 10.
+per criterium is er een opmerkingenveld. Het gemiddelde over de ingevulde
+kolommen bepaalt het jurydeel, dat samen met het lesgeverdeel je cijfer op 20
+oplevert. Je bent geslaagd vanaf 10.
 
-**Let op de 40 % voor criterium D.** Je verdediging weegt zwaarder dan je code.
-Dat verrast elk jaar studenten die alles in de bouw gestoken hebben en hun demo
-de avond ervoor in elkaar steken. Reken op een generale repetitie.
+**Let op de 40 % voor criterium D.** Binnen het jurydeel weegt je verdediging
+zwaarder dan je code. Dat verrast elk jaar studenten die alles in de bouw
+gestoken hebben en hun demo de avond ervoor in elkaar steken. Reken op een
+generale repetitie.
 
 ## Wat de criteria in de praktijk betekenen
 
@@ -44,10 +80,15 @@ je werking, architectuur en tests — zeg dat dan uitdrukkelijk.
 
 ### C — Zelfstandigheid en professionele houding (15 %)
 
-Heb je zelf geanalyseerd, gekozen en doorgezet? Hier weegt ook mee **hoe je de
-flow gevolgd hebt**: tijdig ingediend, deadlines gehaald, werklog bijgehouden,
-gereageerd op vragen, en proactief laten weten wanneer er iets in de weg zat.
-Een goed gemotiveerde koerswijziging is hier een pluspunt, geen minpunt.
+Heb je zelf geanalyseerd, gekozen en doorgezet? De jury beoordeelt hier de
+houding zoals ze uit je werk en je verdediging blijkt: eigen keuzes die je kan
+verantwoorden, omgaan met tegenslag, en een goed gemotiveerde koerswijziging —
+dat laatste is een pluspunt, geen minpunt.
+
+Hoe je het semester lang gewerkt hebt — op tijd indienen, werklog, commits,
+reageren — zit niet hier maar in het **lesgeverdeel** van 60 %. Beide gaan over
+professionaliteit, maar de jury ziet één namiddag en de lesgever ziet je hele
+traject.
 
 ### D — Presentatie, demo en vragenronde (40 %)
 
