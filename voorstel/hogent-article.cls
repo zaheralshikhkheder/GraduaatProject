@@ -77,7 +77,7 @@
 \let\@email\@empty           % e.g. ernst.aarden@student.hogent.be
 \let\@supervisor\@empty      % de mentor bij het bedrijf
 \let\@supervisor@role\@empty
-\let\@projectrepo\@empty     % e.g. https://github.com/hogentprg/some-repo
+\let\@projectrepo\@empty     % e.g. https://git.lucvervoort.org/jouwnaam/graduaatsproject
 \let\@specialisation\@empty  % e.g. System and Network Admin, Data engineering
 \let\@keywords\@empty
 
