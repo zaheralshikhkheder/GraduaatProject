@@ -1,0 +1,51 @@
+%==============================================================================
+% Sjabloon projectvoorstel graduaatsproject
+%==============================================================================
+% Je gegevens staan in ../projectgegevens.tex. De inhoud van je voorstel
+% schrijf je in voorstel-inhoud.tex - dat bestand wordt later ook automatisch
+% als bijlage in je rapport opgenomen.
+
+\documentclass{hogent-article}
+
+% Voor een voorstel in het Engels: \documentclass[english]{hogent-article}
+% Dat kan enkel na toestemming van je begeleider.
+
+\addbibresource{voorstel.bib}
+
+\input{../projectgegevens}
+
+%% Opleiding, vak en soort opdracht
+\studyprogramme{\opleidingnaam}
+\course{Graduaatsproject}
+\assignmenttype{Projectvoorstel}
+
+\academicyear{\academiejaarwaarde}
+
+\title{\projecttitel}
+
+\author{\studentnaam}
+\email{\studentemail}
+
+%% Je mentor op de werkvloer
+\supervisor[Mentor]{\mentornaam{} (\bedrijfsnaam, \href{mailto:\mentoremail}{\mentoremail})}
+
+%% De link naar je repository
+\projectrepo{\repolink}
+
+\keywords{\projectkeywords}
+
+\begin{document}
+
+\begin{abstract}
+  % Eén samenhangende alinea van vijf tot acht zinnen, die je hele voorstel
+  % samenvat: de context bij je bedrijf, het probleem, wat je gaat maken, met
+  % welke technologie, en wat het bedrijf eraan heeft. Geen inleiding, geen
+  % opsomming.
+  Vervang deze tekst door de samenvatting van je voorstel.
+\end{abstract}
+
+\input{voorstel-inhoud}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

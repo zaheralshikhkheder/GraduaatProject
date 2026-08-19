@@ -1,0 +1,64 @@
+%%=============================================================================
+%% Realisatie
+%%=============================================================================
+
+\chapter{\IfLanguageName{dutch}{Realisatie}{Implementation}}%
+\label{ch:realisatie}
+
+%% Richtlengte: 3 tot 4 bladzijden - het langste hoofdstuk.
+%%
+%% Beschrijf wat je gebouwd hebt en hoe. Niet chronologisch ("op dag drie deed
+%% ik..."), maar per onderdeel of per probleem dat je opgelost hebt.
+
+Vervang deze tekst door een korte inleiding op het hoofdstuk.
+
+\section{\IfLanguageName{dutch}{Opbouw van de code}{Structure of the code}}%
+\label{sec:opbouw-code}
+
+%% Hoe is je repository ingedeeld, en waarom zo? Welke lagen of modules zijn
+%% er? Iemand die je code voor het eerst opent, moet na deze sectie weten waar
+%% hij moet beginnen kijken.
+
+\section{\IfLanguageName{dutch}{Werkwijze en versiebeheer}{Way of working and version control}}%
+\label{sec:werkwijze}
+
+%% Hoe heb je gewerkt: in welke stappen, met welk versiebeheer, met welke
+%% afspraken over commits en branches? Hoe hield je je voortgang bij, en hoe
+%% stemde je af met je mentor?
+%%
+%% Vermeld ook je ontwikkelomgeving: editor, hulpmiddelen, testomgeving,
+%% eventueel containers of een pijplijn. Ook dit is een verwacht onderdeel van
+%% je verdediging.
+
+\section{\IfLanguageName{dutch}{Belangrijkste onderdelen}{Key components}}%
+\label{sec:onderdelen}
+
+%% Bespreek de twee of drie onderdelen waar het echte werk zat. Toon per
+%% onderdeel een kort codefragment - een tiental regels, niet een volledig
+%% bestand - en leg uit waarom het zo opgelost is.
+
+\begin{listing}[htbp]
+  \begin{minted}{python}
+    def bereken_score(criteria, gewichten):
+        """Voorbeeld: vervang dit door een fragment uit je eigen code."""
+        totaal = sum(c * g for c, g in zip(criteria, gewichten))
+        return round(totaal / sum(gewichten), 2)
+  \end{minted}
+  \caption[Voorbeeld van een codefragment]{\label{lst:voorbeeld}%
+    Vervang dit fragment door een stuk van je eigen code, en leg in de tekst
+    uit wat het doet en waarom het zo opgelost is. Neem nooit hele bestanden
+    op: kies het fragment dat iets uitlegt.}
+\end{listing}
+
+%% Mag je je code niet tonen omdat ze eigendom is van het bedrijf of onder een
+%% NDA valt? Dan beschrijf je in plaats daarvan de werking, de architectuur en
+%% de tests, eventueel met sterk vereenvoudigde fragmenten. Vermeld
+%% uitdrukkelijk dat dat de reden is - een jury rekent je dat niet aan, maar
+%% ongemotiveerd ontbrekende code wel.
+
+\section{\IfLanguageName{dutch}{Problemen onderweg}{Problems along the way}}%
+\label{sec:problemen}
+
+%% Wat liep er anders dan gepland, en hoe ben je eruit geraakt? Dit is geen
+%% zwakte om te verbergen: het is een van de interessantste delen van je
+%% rapport, en het toont zelfstandigheid.

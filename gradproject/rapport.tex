@@ -1,0 +1,173 @@
+%===============================================================================
+% LaTeX-sjabloon voor het rapport van het graduaatsproject
+% Graduaat in het Programmeren - HOGENT
+%
+% Je hoeft in dit bestand normaal niets aan te passen: je gegevens staan in
+% ../projectgegevens.tex. Schrijf je tekst in de hoofdstukbestanden.
+%===============================================================================
+
+\documentclass[dutch,dit,report]{hogentreport}
+
+% Schrijf je in het Engels? Vervang `dutch' door `english'. Let op: dat kan
+% enkel na uitdrukkelijke toestemming van je begeleider, en je Nederlandse
+% samenvatting blijft dan verplicht (zie samenvatting.tex).
+
+%% Afbeeldingen komen in de map graphics/
+\graphicspath{{../graphics/}}
+
+%% Codefragmenten met kleuraccenten. Compileer met de -shell-escape vlag;
+%% de make_report-scripts doen dat al voor jou.
+%%
+%% Compileer je met een oudere LaTeX-installatie (TeX Live 2022 of ouder, met
+%% minted versie 2)? Vervang de regel hieronder dan door:
+%%     \usepackage[chapter,outputdir=../output]{minted}
+%% Vanaf minted 3 regelt het pakket dat zelf en geeft die optie een fout.
+\usepackage[chapter]{minted}
+\usemintedstyle{solarized-light}
+
+\setminted{%
+    autogobble,
+    frame=lines,
+    breaklines,
+    linenos,
+    tabsize=4
+}
+
+\renewcommand\listoflistingscaption{%
+    \IfLanguageName{dutch}{Lijst van codefragmenten}{List of listings}
+}
+\renewcommand\listingscaption{%
+    \IfLanguageName{dutch}{Codefragment}{Listing}
+}
+\renewcommand*\listoflistings{%
+    \cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\listoflistingscaption}%
+    \listof{listing}{\listoflistingscaption}%
+}
+
+%% Klikbare URL's, ook in de tekst
+\usepackage{xurl}
+
+%%---------- Je gegevens -------------------------------------------------------
+%% Alles wat hieronder ingevuld wordt, komt uit ../projectgegevens.tex
+\input{../projectgegevens}
+
+\author{\studentnaam}
+\supervisor{\begeleidernaam}
+\cosupervisor{\mentornaam}
+\title[\projectondertitel]{\projecttitel}
+\academicyear{\academiejaarwaarde}
+\examperiod{1}          %% 1 = eerste examenperiode, 2 = tweede, 3 = derde
+\degreesought{\IfLanguageName{dutch}{\opleidingnaam}{Associate Degree in Programming}}
+\institution{\bedrijfsnaam}
+
+%% Afbrekingen die LaTeX verkeerd doet, kan je hier opgeven
+\hyphenation{back-slash}
+
+%% Bibliografie
+\addbibresource{bronnen.bib}              %% Bronnen van je rapport
+\addbibresource{../voorstel/voorstel.bib} %% Bronnen van je projectvoorstel
+\defbibheading{bibempty}{}
+
+%% Geen lege bladzijden tussen hoofdstukken
+\renewcommand{\cleardoublepage}{\clearpage}
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+%---------- Voorwerk -----------------------------------------------------------
+
+\frontmatter
+
+\hypersetup{pageanchor=false}
+%% Bij een Engelstalig rapport komt er ook een Nederlands titelblad
+\IfLanguageName{english}{%
+    \degreesought{\opleidingnaam}%
+    \begin{otherlanguage}{dutch}%
+       \maketitle%
+    \end{otherlanguage}%
+}{}
+
+\maketitle
+\hypersetup{pageanchor=true}
+
+\input{voorwoord}
+\input{samenvatting}
+
+%---------- Inhoud, lijsten ----------------------------------------------------
+
+\tableofcontents
+
+% Geef elke figuur, tabel en codefragment een KORT bijschrift tussen vierkante
+% haken; enkel dat korte bijschrift komt in de lijsten terecht:
+%   \caption[korte omschrijving]{de volledige omschrijving}
+
+\listoffigures
+
+% Heb je geen tabellen of codefragmenten? Zet de bijhorende regel dan in
+% commentaar; een lege lijst staat slordig.
+\listoftables
+\listoflistings
+
+%---------- Kern ---------------------------------------------------------------
+
+\mainmatter{}
+
+% Richtwaarde voor het geheel: 10 tot 15 bladzijden kerntekst. Dat is weinig,
+% en dat is met opzet: je rapport is een technisch verslag van een project van
+% ongeveer tien werkdagen, geen scriptie. Schrap liever dan te vullen.
+
+\input{inleiding}
+\input{technologie}
+\input{ontwerp}
+\input{realisatie}
+\input{resultaat}
+\input{reflectie}
+
+%---------- Bijlagen -----------------------------------------------------------
+
+\appendix
+
+\chapter{Projectvoorstel}
+
+Het onderwerp van dit graduaatsproject werd vooraf vastgelegd in een
+projectvoorstel, afgestemd met de mentor en goedgekeurd door de begeleider.
+Dat voorstel is hieronder opgenomen.
+
+\input{../voorstel/voorstel-inhoud}
+
+\chapter{Repository}
+
+De volledige broncode, de opbouw van het project en de startinstructies staan
+in de repository:
+
+\begin{center}
+  \url{\repolink}
+\end{center}
+
+% Is je repository niet publiek toegankelijk (bv. omwille van een NDA of omdat
+% de code eigendom blijft van het bedrijf)? Vermeld dat hier uitdrukkelijk, en
+% beschrijf wat je wel kan tonen: werking, architectuur, tests, of beperkte
+% fragmenten.
+
+\chapter{Verantwoording van het gebruik van AI}
+
+% Het opleidingsonderdeel verwacht dat je AI doelgericht inzet. Wees daar
+% open over: dat is een competentie, geen bekentenis.
+%
+% Beschrijf per gebruik: waarvoor je AI hebt ingezet, wat het opleverde, en
+% wat je zelf gecontroleerd, aangepast of verworpen hebt. Gebruikte je geen
+% AI, dan schrijf je dat hier.
+
+%%---------- Andere bijlagen ---------------------------------------------------
+% Voeg hier eventuele andere bijlagen toe.
+%\input{...}
+
+%%---------- Nawerk, bronnenlijst ----------------------------------------------
+
+\backmatter{}
+
+\setlength\bibitemsep{2pt}
+\printbibliography[heading=bibintoc]
+
+\end{document}

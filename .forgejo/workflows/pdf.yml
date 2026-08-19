@@ -1,0 +1,64 @@
+# Deze workflow bouwt bij elke push je voorstel, je rapport en je poster,
+# en houdt de PDF's bij als artefact. Zo weet je zeker dat je documenten ook
+# buiten je eigen laptop compileren.
+#
+# Vereist dat er een Forgejo-runner geregistreerd is bij de Forgejo van de
+# opleiding. Werkt dat (nog) niet, dan verandert er niets aan het bouwen op
+# je eigen machine met de make_-scripts.
+
+name: PDF's bouwen
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  bouwen:
+    runs-on: docker
+    container:
+      image: debian:trixie-slim
+
+    steps:
+      - name: LaTeX en hulpprogramma's installeren
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-latex-extra texlive-lang-european \
+            texlive-bibtex-extra texlive-xetex texlive-fonts-recommended \
+            biber latexmk python3-pygments fontconfig ghostscript git nodejs ca-certificates
+          rm -rf /var/lib/apt/lists/*
+
+      - name: Repository ophalen
+        uses: actions/checkout@v4
+
+      - name: Lettertypes van de huisstijl installeren
+        run: |
+          mkdir -p /usr/share/fonts/opentype
+          cp -r fonts/* /usr/share/fonts/opentype/
+          fc-cache -f
+
+      - name: Projectvoorstel bouwen
+        run: PROJECT_ROOT="$PWD" sh docker/render.sh voorstel
+
+      - name: Rapport bouwen
+        run: PROJECT_ROOT="$PWD" sh docker/render.sh gradproject
+
+      - name: Poster bouwen
+        run: PROJECT_ROOT="$PWD" sh docker/render.sh poster
+
+      - name: PDF's bewaren
+        uses: actions/upload-artifact@v3
+        with:
+          name: pdf
+          path: output/*.pdf
+
+      - name: Logbestanden bewaren bij een fout
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: logs
+          path: output/*.log

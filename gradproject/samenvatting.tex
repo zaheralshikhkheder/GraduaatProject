@@ -1,0 +1,47 @@
+%%=============================================================================
+%% Samenvatting - VERPLICHT IN TWEE TALEN
+%%=============================================================================
+%%
+%% Je rapport begint met twee samenvattingen, elk op een eigen bladzijde:
+%%
+%%   bladzijde 1: de Nederlandse samenvatting
+%%   bladzijde 2: dezelfde samenvatting in het Engels
+%%
+%% Beide zijn verplicht, ook als je je rapport volledig in het Nederlands
+%% schrijft. Ze staan bovenaan omdat ze in de praktijk het enige zijn dat een
+%% druk jurylid met zekerheid leest.
+%%
+%% Richtlengte: 200 tot 250 woorden per taal, doorlopende tekst, geen lijstjes.
+%%
+%% Een goede samenvatting beantwoordt in die volgorde:
+%%   1. Voor welk bedrijf en welk probleem?
+%%   2. Wat heb je gemaakt?
+%%   3. Met welke technologie, en waarom die?
+%%   4. Wat is het resultaat - werkt het, en hoe weet je dat?
+%%   5. Wat heeft het bedrijf eraan?
+%%
+%% Schrijf ze op het einde, niet in het begin. En schrijf ze zelf: dit is de
+%% bladzijde waaraan een lezer merkt of je je eigen werk begrepen hebt.
+
+%%---------- Nederlandse samenvatting -----------------------------------------
+
+\IfLanguageName{english}{\selectlanguage{dutch}}{}
+
+\chapter*{Samenvatting}
+\label{ch:samenvatting-nl}
+
+Vervang deze tekst door je Nederlandse samenvatting van ongeveer 200 woorden.
+
+\IfLanguageName{english}{\selectlanguage{english}}{}
+
+%%---------- Engelse samenvatting ---------------------------------------------
+
+\IfLanguageName{dutch}{\selectlanguage{english}}{}
+
+\chapter*{Abstract}
+\label{ch:samenvatting-en}
+
+Replace this text with the English version of your summary, about 200 words.
+It is a translation of the Dutch summary, not a different text.
+
+\IfLanguageName{dutch}{\selectlanguage{dutch}}{}

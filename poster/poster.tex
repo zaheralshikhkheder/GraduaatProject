@@ -1,0 +1,81 @@
+%==============================================================================
+% Sjabloon poster graduaatsproject
+%==============================================================================
+% Gebaseerd op de documentclass `a0poster' van Gerlinde Kettl en Matthias Weiser
+% Aangepast voor HOGENT door Jens Buysse en Bert Van Vreckem
+%
+% Je gegevens staan in ../projectgegevens.tex.
+%
+% De poster is een affiche van A0-formaat: hij wordt van op twee meter afstand
+% bekeken, op de verdedigingsdag en op infodagen. Schrijf dus kort, gebruik
+% beeld, en zorg dat iemand in dertig seconden begrijpt wat je gemaakt hebt.
+
+\documentclass[a0,portrait]{hogent-poster}
+
+\input{../projectgegevens}
+
+% Info over de opleiding
+\course{Graduaatsproject}
+\studyprogramme{\opleidingnaam}
+\academicyear{\academiejaarwaarde}
+\institution{Hogeschool Gent, Valentin Vaerwyckweg 1, 9000 Gent}
+
+% Info over het project
+\title{\projecttitel}
+\subtitle{\projectondertitel}
+\author{\studentnaam}
+\email{\studentemail}
+\supervisor{\begeleidernaam}
+\cosupervisor{\mentornaam{} (\bedrijfsnaam)}
+
+% Deze informatie komt onderaan de samenvatting te staan
+\specialisation{Programmeren}
+\keywords{\projectkeywords}
+\projectrepo{\repolink}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  % Drie tot vijf zinnen: voor welk bedrijf, welk probleem, wat heb je gemaakt
+  % en wat levert het op. Dit is het enige stuk lopende tekst op je poster dat
+  % iemand echt van begin tot eind leest.
+  Vervang deze tekst door de samenvatting van je project.
+\end{abstract}
+
+\begin{multicols}{2}
+
+\section{Probleem}
+
+% Wat liep er mis of ontbrak er, en voor wie? Twee tot vier korte zinnen, of
+% drie bullets. Geen achtergrondverhaal.
+
+\section{Aanpak en technologie}
+
+% Hoe heb je het aangepakt en waarmee? Noem de technologie bij naam en zeg in
+% één zin waarom het die geworden is. Een klein architectuurschema doet hier
+% meer werk dan een paragraaf tekst.
+
+\begin{center}
+  \captionsetup{type=figure}
+  \includegraphics[width=1.0\linewidth]{voorbeeldafbeelding}
+  \captionof{figure}{Vervang deze afbeelding door je architectuurschema of
+    een schermafbeelding van je oplossing. Op een poster is beeld belangrijker
+    dan tekst: reken op minstens twee afbeeldingen.}
+\end{center}
+
+\section{Resultaat}
+
+% Wat is er opgeleverd, en werkt het? Toon het liefst met een schermafbeelding
+% of een cijfer: "verwerkt 1200 orders per uur", "bespaart het supportteam
+% ongeveer een uur per dag". Concreet verslaat algemeen.
+
+\section{Wat ik eruit meeneem}
+
+% Twee tot drie zinnen: wat heb je geleerd, technisch en over jezelf als
+% beginnende professional? Dit is het menselijke stuk van je poster, en het is
+% wat bezoekers op een infodag onthouden.
+
+\end{multicols}
+\end{document}
