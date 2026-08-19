@@ -34,6 +34,30 @@ Praktisch betekent dat:
 - **laat het weten als iets vastloopt.** Proactief melden telt in je voordeel,
   stil vallen niet.
 
+## AI: gebruik het, en verantwoord het in detail
+
+Je mag AI gebruiken, en er wordt van je verwacht dat je het **doelgericht** doet — het staat als leerresultaat in
+de studiefiche. Daar hoort één verplichting tegenover te staan, en die is niet vrijblijvend:
+
+> Je houdt **steeds** bij waarvoor je AI gebruikt hebt, wat je ermee gedaan hebt, hoe je gecontroleerd hebt dat het
+> klopt, en **waar het in je werk terug te vinden is**. Dat bijhouden gebeurt onderweg, niet achteraf.
+
+Per gebruik — niet per gesprek en niet per dag — noteer je: waarvoor, welk hulpmiddel, wat eruit kwam, **in welk
+bestand, hoofdstuk of dia het terechtkwam**, wat jij ermee deed (overgenomen, aangepast, herschreven, verworpen) en
+hoe je nagegaan bent dat het deugt. Zat het enkel in je denkwerk en niet rechtstreeks in je resultaat, dan is dat
+een geldig antwoord — als je het zo opschrijft.
+
+Wat er **niet** gevraagd wordt: je volledige gesprekken. De vraag is niet wat je getypt hebt, maar wat je ermee
+gedaan hebt en hoe je weet dat het klopt.
+
+Twee regels errond:
+
+- **Code die je niet kan uitleggen, hoort niet in je oplevering.** Je bent verantwoordelijk voor alles wat in je
+  repository staat. Reken erop dat de jury doorvraagt.
+- **Beoordeeld wordt de verantwoording, niet het gebruik.** Veel gebruiken is geen minpunt en weinig gebruiken is
+  geen pluspunt. Een ontbrekende of vage verantwoording is een tekort in je rapport, zoals een ontbrekende
+  bronnenlijst dat is.
+
 ## De rubric van de jury (40 %)
 
 > **Status**: dit zijn de criteria zoals ze in juni 2026 gebruikt werden,
