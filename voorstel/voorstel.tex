@@ -41,7 +41,9 @@
   % samenvat: de context bij je bedrijf, het probleem, wat je gaat maken, met
   % welke technologie, en wat het bedrijf eraan heeft. Geen inleiding, geen
   % opsomming.
-  Vervang deze tekst door de samenvatting van je voorstel.
+Kritieke services van beveiligingssystemen kunnen worden stopgezet, zowel door een technische storing als door een lokale administrator op de pc. Daarom ontwikkel ik een Windows-service die deze services continu bewaakt.Voor de implementatie in .NET (Core) gebruik ik het Worker Service-sjabloon in combinatie met het NuGet-pakket Microsoft.Extensions.Hosting.WindowsServices.
+Ik ga een achtergrondservice programmeren die de kritieke services in de gaten houdt. Wanneer een van deze kritieke services op een beheerde laptop wordt stopgezet via een lokaal administratoraccount, stuurt mijn service direct een melding via e-mail naar het IT- en securityteam. Deze e-mail vermeldt de naam van de laptop, de naam van de service en de datum en het tijdstip van het incident.
+De nieuwe service wordt op zijn beurt beschermd door een tweede service, die controleert of de eerste service actief blijft.
 \end{abstract}
 
 \input{voorstel-inhoud}
