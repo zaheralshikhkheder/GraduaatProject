@@ -20,8 +20,8 @@
 % concrete behoefte is de aanleiding? Noem de mensen voor wie het een probleem
 % is. Vermijd algemeenheden als "bedrijven hebben nood aan".
 
-De stag loopt bij IQGeo bij de engineering team, die verantoowrdelijk is voor het opbouwen van softwares.
-Het idde gaat over security systemen die gedeployed zijn op elke beheerde laptop, die systemen hebben gelinkte actergrond services waarmee met een local admin account gestopt kan worden. De IT team is geinteresseerd in het monitoren van die service.
+De stage loopt bij IQGeo in het engineering team, dat verantwoordelijk is voor het ontwikkelen van softwares. 
+Het idee richt zich op de beveiligingssystemen die op elke beheerde laptop geïnstalleerd zijn. Deze systemen maken gebruik van gekoppelde achtergrondservices die via een lokaal administratoraccount gestopt kunnen worden. Het IT-team wil deze services graag actief monitoren.
 
 %---------- 2. Doelstelling ---------------------------------------------------
 
@@ -32,8 +32,9 @@ Het idde gaat over security systemen die gedeployed zijn op elke beheerde laptop
 % het als een resultaat waarvan iemand kan vaststellen dat het er is, en
 % vermeld waaraan je zal merken dat het geslaagd is.
 
-Ik ga een achteegornd service programmeren die de kriteike services in de gaten houden.
-Als er één van die kritieke services stopgezet wordt door een locale admin account op een beheerde laptop, de service die ik zal programmeren, gaat direct een melding sturen via email naar de IT en security team. Het gaat de naam van laptop, naam van service, datum en tijd van het incident vermelden.  
+Ik ga een achtergrondservice programmeren die de kritieke services in de gaten houdt. Wanneer een van deze kritieke services op een beheerde laptop wordt stopgezet via een lokaal administratoraccount, stuurt mijn service direct een melding via e-mail naar het IT- en securityteam. Deze e-mail vermeldt de naam van de laptop, de naam van de service en de datum en het tijdstip van het incident.
+De nieuwe service wordt op zijn beurt beschermd door een tweede service, die controleert of de eerste service actief blijft. Het project is geslaagd wanneer het IT-team binnen de verwachte tijd van 2 à 3 minuten een waarschuwingsmail ontvangt nadat een service is stopgezet.
+
 
 %---------- 3. Technologieën --------------------------------------------------
 
@@ -53,7 +54,7 @@ Als er één van die kritieke services stopgezet wordt door een locale admin acc
 
 De gebruikte taal is C sharp, en de gebruikte technologie is Worker Service : Dit is een speciaal projecttype in .NET dat is ontworpen voor langlopende achtergrondtaken. Het maakt gebruik van de klasse BackgroundService en de methode ExecuteAsync. Ik heb dit idee zelf gekozen omdat ik op de hoogte ben van de noden van IT team. Ik werk zelf daarbij. Die technologie is volledig nieuwe voor me. 
 Ik ga AI gebruiken om mijn code te verfijnen.
-De service gaat geen persoonsgegevens verwerken.  
+De service gaat geen persoonsgegevens verwerken, die gaat enkel de naam van de gestopte service en toestel vermelden.   
 
 %---------- 4. Afbakening -----------------------------------------------------
 
@@ -72,7 +73,9 @@ De service gaat geen persoonsgegevens verwerken.
 % Toets voor jezelf: welke analyse en welk ontwerp maak jij zelf? Kan je daar
 % niets over schrijven, dan heb je een taak en geen project.
 
-Ik heb de analyse zelf gemaakt door mijn ervaring bij de IT team, en het ontwerp van het project is ook zelf gemaakt door me .
+Tijdens mijn stage bouw ik een webapplicatie die de onboarding- en offboardingtaken automatiseert. De applicatie communiceert hiervoor met de Microsoft Graph API en Exchange Online. Het doel is dat het IT-team tijd bespaart door deze herhalende taken te automatiseren. De backend wordt ontwikkeld in C# en voor de frontend wordt het React-framework gebruikt. Mijn graduaatsproject staat los van de stageopdracht, al maak ik wel gebruik van de bronnen op de werkplek een geregistreerde app in Azure die over Mail.Send-machtigingen beschikt).
+Ik heb zowel de analyse als het ontwerp van het project volledig zelfstandig uitgewerkt, op basis van mijn ervaring binnen het IT-team.
+
 
 %---------- 5. Verwachte meerwaarde -------------------------------------------
 
@@ -83,8 +86,7 @@ Ik heb de analyse zelf gemaakt door mijn ervaring bij de IT team, en het ontwerp
 % stage afgelopen is? Denk aan tijdwinst, minder fouten, nieuwe mogelijkheden,
 % lagere kosten, of een basis waarop verder gebouwd kan worden.
 
-De service is volledig van het bedrijf, en het kan gedeployed worden naar beheerde toestellen. 
-De service gaat de IT team direct waarschuwen als er een kritieke service stopgezet wordt, dan worden ze op het zelfde moment op de hoogte gehouden.
+De service is volledig eigendom van het bedrijf en kan eenvoudig worden uitgerold naar alle beheerde toestellen. Zodra een kritieke service wordt stopgezet, waarschuwt de service direct het IT-team, zodat zij onmiddellijk op de hoogte zijn van het incident. Bovendien vormt deze oplossing een schaalbare basis voor toekomstige uitbreidingen, zoals het monitoren van andere cruciale componenten en services, waaronder BitLocker (Disk encryptie op Windows toestellen ).
 
 %---------- 6. Planning en werkbelasting --------------------------------------
 
@@ -128,4 +130,7 @@ De service gaat de IT team direct waarschuwen als er een kritieke service stopge
 %
 % Twee tot drie risico's met telkens één zin over wat je terugvalplan is.
 
-Er zijn momenteel geen echte risico's.
+1. Een lokale administrator zet de service stop: De service is zo geconfigureerd dat deze in dat geval standaard automatisch opnieuw opstart.
+2. Een lokale administrator schakelt de service volledig uit: Een tweede achtergrondservice monitort continu of de eerste service actief is en stuurt direct een     waarschuwing naar het IT-team zodra deze wordt uitgeschakeld.
+3. De melding komt niet aan in het ticketingsysteem van het IT-team: Om er zeker van te zijn dat niemand het incident mist, wordt de waarschuwingsmail niet alleen naar het ticketingsysteem gestuurd, maar ook naar een distributielijst waar alle leden van het IT-team deel van uitmaken.
+
