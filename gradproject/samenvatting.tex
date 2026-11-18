@@ -30,7 +30,9 @@
 \chapter*{Samenvatting}
 \label{ch:samenvatting-nl}
 
-Vervang deze tekst door je Nederlandse samenvatting van ongeveer 200 woorden.
+Kritieke services van beveiligingssystemen kunnen worden stopgezet, zowel door een technische storing als door een lokale administrator op de pc. Daarom ontwikkel ik een Windows-service die deze services continu bewaakt.Voor de implementatie in .NET (Core) gebruik ik het Worker Service-sjabloon in combinatie met het NuGet-pakket Microsoft.Extensions.Hosting.WindowsServices.
+Ik ga een achtergrondservice programmeren die de kritieke services in de gaten houdt. Wanneer een van deze kritieke services op een beheerde laptop wordt stopgezet via een lokaal administratoraccount, stuurt mijn service direct een melding via e-mail naar het IT- en securityteam. Deze e-mail vermeldt de naam van de laptop, de naam van de service en de datum en het tijdstip van het incident.
+De nieuwe service wordt op zijn beurt beschermd door een tweede service, die controleert of de eerste service actief blijft.
 
 \IfLanguageName{english}{\selectlanguage{english}}{}
 
@@ -41,7 +43,8 @@ Vervang deze tekst door je Nederlandse samenvatting van ongeveer 200 woorden.
 \chapter*{Abstract}
 \label{ch:samenvatting-en}
 
-Replace this text with the English version of your summary, about 200 words.
-It is a translation of the Dutch summary, not a different text.
+Critical security system services can be stopped—either due to a technical malfunction or by a local administrator on the PC. To address this, I am developing a Windows service that continuously monitors these services. For the implementation in .NET (Core), I am using the Worker Service template in combination with the `Microsoft.Extensions.Hosting.WindowsServices` NuGet package.
+I am programming a background service to keep track of these critical services. If one of them is stopped on a managed laptop—for instance, via a local administrator account—my service will immediately send an email notification to the IT and security team. This email will include the laptop's name, the name of the service, and the date and time of the incident.
+The new service, in turn, is protected by a second service that ensures the first one remains active.
 
 \IfLanguageName{dutch}{\selectlanguage{dutch}}{}
